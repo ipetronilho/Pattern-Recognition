@@ -1,0 +1,25 @@
+function [normalized_data] = scaling(data)
+    % normalize X using standard deviation:
+    % 1 - calculate the mean
+    % 2 - subtract mean from all values and square them
+    % 3 - find deviation
+    % normalize: (x - mean) / deviation
+    
+    size_rows = size(data.X,1);      % 23
+    size_columns = size(data.X, 2);  % 30000
+   
+    % calculate means
+    means = mean(data.X, 2);    % column vector with the mean of each row
+
+    %find standard deviation
+    deviation = std(data.X');
+    size(deviation)
+
+%     normalized_data = zeros(size_rows, size_columns);
+%     for i=1:size_rows
+%         for j=1:size_columns
+%             normalized_data(i,j) = (data.X(i,j)-means(i))/deviation(i);
+%         end
+%     end
+
+end
