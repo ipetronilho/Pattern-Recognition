@@ -2,7 +2,6 @@ global PATH_DATASET
 global NORMALIZE_FLAG
 
 global FEATURE_SELECTION
-global COVARIANCE_TRESHOLD
 
 global PCA_FLAG
 global PCA_FLAG_KAISER
@@ -11,7 +10,7 @@ global PCA_FLAG_SCREE
 global LDA_FLAG
 
 global N_CLASSIFIERS
-global SPLITTING_PERCENTAGE
+
 data = load(PATH_DATASET);
 
 
@@ -47,11 +46,17 @@ if LDA_FLAG
     plot_lda(selected_data);
 end
 
-for i=1:N_CLASSIFIERS
-    if CLASSIFIER_1 == 1
-        [outcome_y, g] = euclidian(selected_data);
-    elseif CLASSIFIER_1 == 2
-        [outcome_y, g] = mahalanobis(selected_data);
-    end
+
+
+for i=1:VOTER
+if CLASSIFIER_1 == 1
+    [outcome_y, g] = euclidian(selected_data);
+elseif CLASSIFIER_1 == 2
+    [outcome_y, g] = mahalanobis(selected_data);
 end
+
+%compare(data);
+
+% feature_reduction(selected_data);
+
 

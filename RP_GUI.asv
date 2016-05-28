@@ -337,20 +337,14 @@ function pushbutton_run_Callback(hObject, eventdata, handles)
     global CLASSIFIER_1
     global CLASSIFIER_2
     global CLASSIFIER_3
-    global N_CLASSIFIERS
-    
     
     SPLITTING_PERCENTAGE = get(handles.textfield_splitting_percentage, 'String');
     VOTER_FLAG = get(handles.checkbox_voter, 'Value');
     
-    
     CLASSIFIER_1 = get(handles.popupmenu_classifiers_1, 'Value');
     if VOTER_FLAG
-        N_CLASSIFIERS=3
         CLASSIFIER_2 = get(handles.popupmenu_classifiers_2, 'Value');
         CLASSIFIER_3 = get(handles.popupmenu_classifiers_3, 'Value');
-    else
-        N_CLASSIFIERS=1
     end
     
 run_program
