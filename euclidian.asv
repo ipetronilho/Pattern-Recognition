@@ -1,7 +1,7 @@
-function [ outcome_y ] = euclidian( data )
-    global SPLITTING_PERCENTAGE
+function [ outcome_y, g ] = euclidian( data )
+    %global SPLITTING_PERCENTAGE
     
-    SPLITTING_PERCENTAGE
+    %SPLITTING_PERCENTAGE
     
     [size_rows, size_columns] = size(data.X);
     % split between training and test sets
@@ -14,7 +14,7 @@ function [ outcome_y ] = euclidian( data )
     y_ones = find(data.y==1); 
     
     percentage_zeros = round(length(y_zeros)*SPLITTING_PERCENTAGE);
-    percentage_ones = round(length(y_ones)*SPLITTING_PERCENTAGE);
+    percentage_ones = round(length(y_ones)*0.7);
     
     train_y_zeros = y_zeros(1, 1:percentage_zeros);
     train_y_ones = y_ones(1, 1:percentage_ones);

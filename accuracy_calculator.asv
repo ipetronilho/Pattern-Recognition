@@ -1,4 +1,4 @@
-function [ output_args ] = matriz_confusao( y_expected, y_predicted )
+function [ output_args ] = accuracy_calculator( y_expected, y_predicted )
 %MATRIZ_CONFUSAO2 Summary of this function goes here
 %   Detailed explanation goes here
 

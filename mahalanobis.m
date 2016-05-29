@@ -1,4 +1,4 @@
-function [ output_args ] = mahalanobis( input_args )
+function [ outcome_y ] = mahalanobis( data )
 %MAHALANOBIS Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -87,7 +87,7 @@ function [ output_args ] = mahalanobis( input_args )
         end
     end
     
-    matriz_confusao(y_test, outcome_y);
+    accuracy_calculator(y_test, outcome_y);
    
 end
 

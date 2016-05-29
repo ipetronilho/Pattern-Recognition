@@ -314,7 +314,7 @@ function pushbutton_run_Callback(hObject, eventdata, handles)
     FEATURE_SELECTION  = get(handles.checkbox_feature_selection, 'Value');
     
     global COVARIANCE_TRESHOLD
-    COVARIANCE_TRESHOLD  = get(handles.textfield_covariance_treshold, 'String');
+    COVARIANCE_TRESHOLD  = str2double(get(handles.textfield_covariance_treshold, 'String'));
     
     
     % ~~ Feature Reduction ~~ 
@@ -340,7 +340,7 @@ function pushbutton_run_Callback(hObject, eventdata, handles)
     global N_CLASSIFIERS
     
     
-    SPLITTING_PERCENTAGE = get(handles.textfield_splitting_percentage, 'String');
+    SPLITTING_PERCENTAGE = str2double(get(handles.textfield_splitting_percentage, 'String'));
     VOTER_FLAG = get(handles.checkbox_voter, 'Value');
     
     

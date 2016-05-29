@@ -12,13 +12,14 @@ function [ data ] = feature_selection( data )
     list_features= ones(size_rows,1);
    
    %covariance_matrix 
+   COVARIANCE_TRESHOLD
    
     for i=1:size_rows
         if list_features(i) ~= 0 % está descartada
             for j=1:size_columns
-                    if covariance_matrix(i,j) >= COVARIANCE_TRESHOLD  && i~= j
-                        list_features(j)=0; 
-                    end
+                if (covariance_matrix(i,j) >= COVARIANCE_TRESHOLD) & (i~= j)
+                    list_features(j)=0; 
+                end
             end
         end
     end

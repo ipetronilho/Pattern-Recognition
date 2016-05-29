@@ -1,4 +1,6 @@
-function [ outcome_y ] = euclidian( data )
+function [ output_args ] = svm( input_args )
+%SVM Summary of this function goes here
+%   Detailed explanation goes here
     global SPLITTING_PERCENTAGE
     
     SPLITTING_PERCENTAGE
@@ -58,34 +60,13 @@ function [ outcome_y ] = euclidian( data )
     number_classes=length(classes);
 
     
-    for i=1:number_classes
-        indices = find(y_train==classes(i));
-        
-        % em que m é o centróide
-        
-        m = mean(X_train(:, indices), 2);
-        
-        %X_train(:, indices)
-        %m
-        for j=1:test_cases
-            distancia = abs(m - X_test(:, j));
-            
-            g(i,j) = distancia' * distancia;
-            %X_train(:, i);
-            %g(i,j) = dot(m, X_train(:, i)) + w_0; % fixar a coluna
-        end
-    end
+    model = fitcsvm(X_train', y_train');
+    y_predicted = predict(model, X_test);
+    y_predicted = y_predicted';
+    outcome_y = 
     
-    outcome_y = zeros(1, test_cases);
-    
-    for i=1:test_cases
-        if g(1,i) <= g(2,i)
-            outcome_y(i)=0;
-        else
-            outcome_y(i)=1;
-        end
-    end
     
     accuracy_calculator(y_test, outcome_y);
-    
+
 end
+

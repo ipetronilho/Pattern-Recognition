@@ -47,11 +47,31 @@ if LDA_FLAG
     plot_lda(selected_data);
 end
 
-for i=1:N_CLASSIFIERS
+if N_CLASSIFIERS == 1
     if CLASSIFIER_1 == 1
-        [outcome_y, g] = euclidian(selected_data);
-    elseif CLASSIFIER_1 == 2
-        [outcome_y, g] = mahalanobis(selected_data);
+        [outcome_y] = euclidian(selected_data);
+    end
+    if CLASSIFIER_1 == 2
+        [outcome_y] = mahalanobis(selected_data);
+    end
+    if CLASSIFIER_1 == 3
+        [outcome_y] = svm(selected_data);
+    end
+
+elseif N_CLASSIFIERS == 3
+    [outcome_y_1] = euclidian(selected_data);
+    [outcome_y_2] = mahalanobis(selected_data);
+    [outcome_y_3] = svm(selected_data);
+    
+    % VOTER
+    outcome_y=zeros(1,outcome_y_1);
+    len=length(outcome_y_1)
+    
+    for i=1:len
+        if (outcome_y_1(i)==outcome_y_2(i) || outcome_y_1(i)==outcome_y_3(i))
+            outcome_y(i)=outcome_y_1(i);
+        else
+            outcome_y(i)=outcome_y_2(i);
+        end
     end
 end
-
