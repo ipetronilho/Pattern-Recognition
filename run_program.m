@@ -59,19 +59,11 @@ if N_CLASSIFIERS == 1
     end
 
 elseif N_CLASSIFIERS == 3
+    
     [outcome_y_1] = euclidian(selected_data);
     [outcome_y_2] = mahalanobis(selected_data);
     [outcome_y_3] = svm(selected_data);
     
-    % VOTER
-    outcome_y=zeros(1,outcome_y_1);
-    len=length(outcome_y_1)
+    outcome_y = voter(outcome_y_1, outcome_y_2, outcome_y_3);
     
-    for i=1:len
-        if (outcome_y_1(i)==outcome_y_2(i) || outcome_y_1(i)==outcome_y_3(i))
-            outcome_y(i)=outcome_y_1(i);
-        else
-            outcome_y(i)=outcome_y_2(i);
-        end
-    end
 end

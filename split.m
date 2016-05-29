@@ -1,5 +1,5 @@
-function [ output_args ] = svm( input_args )
-%SVM Summary of this function goes here
+function [ X_train, y_train, X_test, y_test ] = split( data )
+%SPLIT Summary of this function goes here
 %   Detailed explanation goes here
     global SPLITTING_PERCENTAGE
     
@@ -39,34 +39,6 @@ function [ output_args ] = svm( input_args )
      X_test = data.X(:, indexes_test);
      y_test = data.y(:, indexes_test);
     
-    
-    % ------ EUCLIDIAN 
-    w = mean(data.X, 2);
-    w_0 = w' * w;
-    
-    
-    [train_dimensions, train_cases] = size(X_train); 
-    [test_dimensions, test_cases] = size(X_test); 
-    g = zeros(2,test_cases);
-    
-    % w = zeros(train_dimensions, train_cases);
-    
-    %w(i) = média da linha
-    classes = [0, 1];
-        
-    [number_dimensions, number_cases] = size(X_train);
-    % size_y_train = size(y_train)
-
-    number_classes=length(classes);
-
-    
-    model = fitcsvm(X_train', y_train');
-    y_predicted = predict(model, X_test);
-    y_predicted = y_predicted';
-    outcome_y = 
-    
-    
-    accuracy_calculator(y_test, outcome_y);
 
 end
 
