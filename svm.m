@@ -5,8 +5,7 @@ function [ outcome_y ] = svm( data )
     [X_train, y_train, X_test, y_test] = split(data);    
 
     % SVM
-    k = round(sqrt(length(X_train)));
-    model = fitcsvm(X_train', y_train', 'NumNeighbors', k);
+    model = fitcsvm(X_train', y_train');
     outcome_y = predict(model, X_test');
     outcome_y = outcome_y';
     

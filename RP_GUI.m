@@ -101,7 +101,7 @@ function browse_files_dataset_directory_Callback(hObject, eventdata, handles)
 % hObject    handle to browse_files_dataset_directory (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-    uigetfile();
+set(handles.dataset_directory, 'String', uigetfile());
 
 
 % --- Executes on button press in checkbox_pca.
@@ -307,7 +307,6 @@ function pushbutton_run_Callback(hObject, eventdata, handles)
     
     global NORMALIZE_FLAG
     NORMALIZE_FLAG  = get(handles.checkbox_normalize, 'Value');
-    NORMALIZE_FLAG
     
     % ~~ Feature Selection ~~
     global FEATURE_SELECTION
